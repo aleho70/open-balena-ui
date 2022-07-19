@@ -49,7 +49,7 @@ export const DeviceLogs = ({basePath, ...props}) => {
                     setContent(`<html style='font-family: consolas; color: #ffffff'>${formattedLogs}</html>`);
                     return;
                 }
-                result.push(...value);
+                result = (value).reduce(function (array, ch) { array.push(ch); return array; }, []);
                 return reader.read().then(processText);
                 })
             })
