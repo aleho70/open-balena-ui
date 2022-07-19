@@ -48,8 +48,11 @@ export const DeviceLogs = ({basePath, ...props}) => {
                     const formattedLogs = containerLogs.map(x => `[${(new Date(x.timestamp)).toISOString()}] ${x.message}`).join('<br/>');
                     setContent(`<html style='font-family: consolas; color: #ffffff'>${formattedLogs}</html>`);
                     return;
+                } else {
+                    value.forEach(function (ch) {
+                        result.push(ch);
+                    });
                 }
-                result = (value).reduce(function (array, ch) { array.push(ch); return array; }, []);
                 return reader.read().then(processText);
                 })
             })
